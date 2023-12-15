@@ -18,7 +18,7 @@ function startCustomTimer() {
 
 startCustomTimerButton.addEventListener("click", startCustomTimer);
 
-const optionsHTML = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+const optionsHTML = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 15, 20, 24]
   .map(
     (e) => `
   <option key="${e}" value="${e}">
