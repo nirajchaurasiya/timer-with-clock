@@ -2,17 +2,21 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   color: white;
   font-family: Arial, sans-serif;
 }
 
 #container {
+  background-color: #0d0d0c;
+  width: 80vw;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  box-shadow: rgba(50, 51, 50, 0.888) 0px 7px 29px 0px;
 }
 
 #clock,
@@ -21,26 +25,159 @@ body {
   font-size: 100px;
 }
 
+@media (max-width: 1000px) {
+  #clock,
+  #timer {
+    text-align: center;
+    font-size: 80px;
+  }
+}
+
+@media (max-width: 815px) {
+  #clock,
+  #timer {
+    text-align: center;
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 610px) {
+  #clock,
+  #timer {
+    text-align: center;
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  #clock,
+  #timer {
+    text-align: center;
+    font-size: 30px;
+  }
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-top: 20px;
+  }
+  select {
+    padding: 10px 40px !important;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    margin-right: 10px;
+  }
+  .message-sign {
+    color: rgb(253, 192, 202);
+    text-shadow: 1px 1px 0 rgb(236, 159, 172) !important;
+  }
+  .message-sign span {
+    color: rgb(104, 173, 252);
+    text-shadow: 1px 1px 0 rgb(81, 135, 160) !important;
+  }
+  .time-sign {
+    color: rgb(215, 146, 194);
+    text-shadow: 1px 1px 0 rgb(160, 81, 81) !important;
+  }
+  .dropdown {
+    text-shadow: 2px 2px 0 rgb(100, 97, 97);
+  }
+}
+
 #clock span,
 #timer span {
   font-weight: 800;
 }
 
-button {
-  padding: 10px;
-  border: 2px solid rgb(255, 255, 255);
-  border-radius: 20px;
-  background-color: transparent;
-  color: white;
+.animated-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: #44d52a;
+  box-shadow: 0 0 0 2px #44d52a;
   cursor: pointer;
-  margin: 5px;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 10px;
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: #44d52a;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #44d52a;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #212121;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: #212121;
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px #44d52a;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
 }
 
 .dropdown {
@@ -67,4 +204,25 @@ select {
 button.startCustomTimer {
   padding: 10px 20px;
   border-radius: 20px;
+}
+.message-sign {
+  color: rgb(253, 192, 202);
+  text-shadow: 4px 2px 0 rgb(236, 159, 172);
+}
+.message-sign span {
+  color: rgb(104, 173, 252);
+  text-shadow: 4px 2px 0 rgb(81, 135, 160);
+}
+.time-sign {
+  color: rgb(215, 146, 194);
+  text-shadow: 4px 2px 0 rgb(160, 81, 81);
+}
+.dropdown {
+  text-shadow: 2px 2px 0 rgb(100, 97, 97);
+}
+
+.top-msg {
+  font-size: 30px;
+  color: #44d52a;
+  text-align: center;
 }

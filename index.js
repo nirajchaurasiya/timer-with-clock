@@ -67,7 +67,7 @@ function updateClock() {
     formatHours + `:` + minutes + `:` + seconds + ` ` + isAM_PM;
 
   // Update the content of the #clock element
-  clock.innerHTML = `<span>${timeInMinutesAndSeconds}</span>`;
+  clock.innerHTML = `<span class="time-sign">${timeInMinutesAndSeconds}</span>`;
 }
 
 // Initial call to update the clock
@@ -96,7 +96,7 @@ function startTimer(durationInSeconds) {
       ? `<span>${hr}:${
           minutes < 10 ? `0${minutes}` : minutes
         }:${seconds}</span>`
-      : `<span>Select a timer</span>`;
+      : `<span class="message-sign">Select  <span>a timer</span> </span>`;
 
     if (timeRemaining > 0) {
       timeRemaining--;
@@ -114,7 +114,7 @@ function startTimer(durationInSeconds) {
   updateTimer();
 }
 
-startTimer(5);
+startTimer();
 
 function playAlarm() {
   const alarm = new Audio("alarm.mp3");
