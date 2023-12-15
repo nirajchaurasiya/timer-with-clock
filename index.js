@@ -114,7 +114,7 @@ function startTimer(durationInSeconds) {
   updateTimer();
 }
 
-startTimer();
+startTimer(5);
 
 function playAlarm() {
   const alarm = new Audio("alarm.mp3");
